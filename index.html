@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BinToDec</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- font awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    
+    <div class="container">
+        <h1>BinToDec</h1>
+        <p>Enter a binary number (Ex: 011010101)</p>
+        <div class="hide">Erro digite Apenas 0 e 1</div>    
+        <div class="brow">
+            <input id="input" type="text" name="number" maxlength="18" oninput="load()"><button id="limpa" onclick="limpa()">
+                <i class="fas fa-trash-alt"></i>
+            </button>
+        </div>
+        <div id="res"></div>
+       
+    </div>
+    
+
+    <script>
+        function load(){
+            var bin = document.getElementById('input').value;
+            var char = bin.split("");
+            var hide = document.getElementsByClassName("hide")[0]
+            for(i = 0; i < char.length; i++)
+            if(char[i] >= "2"){
+            
+            hide.style.display = "block";    
+            }else{
+            hide.style.display = "none";
+            }
+            console.log(char);
+            console.log(bin);
+            var dec = document.getElementById('res');
+            var dectobin = parseInt(bin,2);
+            dec.innerHTML = dectobin;
+        }
+        function limpa(){
+            
+            var bin = document.getElementById('input').value = "";
+            var dec = document.getElementById('res');
+            dec.innerHTML = "";
+        }
+    </script>
+</body>
+</html>
